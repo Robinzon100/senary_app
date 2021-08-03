@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:senary_app/components/button.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
-  const VideoPlayerScreen({Key? key}) : super(key: key);
+  final String videoUrl;
+  const VideoPlayerScreen({Key? key, required this.videoUrl}) : super(key: key);
 
   @override
   _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
@@ -17,10 +17,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   @override
   void initState() {
-    _controller = VideoPlayerController.asset(
-      'assets/videos/login.mp4',
-    );
-
+    _controller = VideoPlayerController.asset(widget.videoUrl);
     _initializeVideoPlayerFuture = _controller.initialize();
     super.initState();
   }

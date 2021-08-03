@@ -25,11 +25,11 @@ class LoginScreenViewState extends State<LoginScreenView> {
   ];
 
   @override
-  Widget build(BuildContext ctx) {
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          const VideoPlayerScreen(),
+          const VideoPlayerScreen(videoUrl: 'assets/videos/login.mp4',),
           Text(text),
           OutlinedButton(
             onPressed: pressHandler,
@@ -38,12 +38,7 @@ class LoginScreenViewState extends State<LoginScreenView> {
               foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
             ),
           ),
-          PrimaryButton(title: 'play', onPress: pressHandler),
-          //   Column(
-          //       children: questions
-          //           .map((item) =>
-          //               PrimaryButton(title: item, onPress: pressHandler))
-          //           .toList())
+          PrimaryButton(title: 'login', onPress: pressHandler),
         ],
       ),
     );

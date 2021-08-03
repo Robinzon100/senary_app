@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 
-class PrimaryButton extends StatelessWidget {
+class PrimaryButton extends StatefulWidget {
   final onPress;
-  const PrimaryButton({Key? key, required String this.title, this.onPress})
+  const PrimaryButton({Key? key, required this.title, this.onPress})
       : super(key: key);
   final String title;
 
   @override
+  State<PrimaryButton> createState() => _PrimaryButtonState();
+}
+
+
+
+class _PrimaryButtonState extends State<PrimaryButton> {
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: InkWell(
-        onTap: () => {onPress()},
+        onTap: () => {widget.onPress()},
         child: Container(
           width: MediaQuery.of(context).size.width - 30,
           height: 66,
@@ -19,7 +26,7 @@ class PrimaryButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                title,
+                widget.title,
                 style: const TextStyle(
                   fontSize: 20.0,
                   fontFamily: 'Roboto',
