@@ -10,8 +10,6 @@ class PrimaryButton extends StatefulWidget {
   State<PrimaryButton> createState() => _PrimaryButtonState();
 }
 
-
-
 class _PrimaryButtonState extends State<PrimaryButton> {
   @override
   Widget build(BuildContext context) {
@@ -19,8 +17,8 @@ class _PrimaryButtonState extends State<PrimaryButton> {
       child: InkWell(
         onTap: () => {widget.onPress()},
         child: Container(
-          width: MediaQuery.of(context).size.width - 30,
-          height: 66,
+          width: MediaQuery.of(context).size.width - 40,
+          height: 64,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -41,10 +39,10 @@ class _PrimaryButtonState extends State<PrimaryButton> {
               BoxShadow(
                   color: Color.fromRGBO(0, 179, 229, 0.6000000238418579),
                   offset: Offset(0, 17),
-                  blurRadius: 21)
+                  blurRadius: 25)
             ],
             gradient: const LinearGradient(
-                begin: Alignment(1, 0),
+                begin: Alignment(1, .5),
                 end: Alignment(1, 2),
                 colors: [
                   Color.fromRGBO(0, 209, 234, 1),

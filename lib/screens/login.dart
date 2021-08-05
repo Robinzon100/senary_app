@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:senary_app/components/button.dart';
+import 'package:senary_app/components/text_input.dart';
 import 'package:senary_app/components/video.dart';
+// import 'package:senary_app/components/video.dart';
 
 class LoginScreenView extends StatefulWidget {
   const LoginScreenView({Key? key}) : super(key: key);
@@ -14,6 +16,7 @@ class LoginScreenViewState extends State<LoginScreenView> {
   var text = "some text 1";
 
   void pressHandler() {
+    print('clicked');
     setState(() {
       text = "some other text";
     });
@@ -28,17 +31,26 @@ class LoginScreenViewState extends State<LoginScreenView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          const VideoPlayerScreen(videoUrl: 'assets/videos/login.mp4',),
-          Text(text),
-          OutlinedButton(
-            onPressed: pressHandler,
-            child: const Text('some new new button'),
-            style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
-            ),
+          VideoPlayerScreen(
+            videoUrl: 'assets/videos/login.mp4',
           ),
-          PrimaryButton(title: 'login', onPress: pressHandler),
+          Column(
+              // padding: EdgeInsets.top(12),
+              children: <Widget>[
+                TextInput(
+                    placeholder: 'email',
+                    isFocused: (isFocused) => print(isFocused)),
+                TextInput(
+                    placeholder: 'password',
+                    isFocused: (isFocused) => print(isFocused)),
+              ]),
+          Column(
+            children: <Widget> [
+              PrimaryButton(title: 'login', onPress: pressHandler),
+            ],
+          ),
         ],
       ),
     );
