@@ -17,9 +17,9 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
 
   @override
   void initState() {
+    super.initState();
     _controller = VideoPlayerController.asset(widget.videoUrl);
     _initializeVideoPlayerFuture = _controller.initialize();
-    super.initState();
   }
 
   @override

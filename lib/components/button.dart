@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:senary_app/constants/colors.dart';
 
 class PrimaryButton extends StatefulWidget {
   final onPress;
-  const PrimaryButton({Key? key, required this.title, this.onPress})
+  final bool filled;
+  const PrimaryButton(
+      {Key? key, required this.title, this.onPress, this.filled = true})
       : super(key: key);
   final String title;
 
@@ -15,7 +18,7 @@ class _PrimaryButtonState extends State<PrimaryButton> {
   Widget build(BuildContext context) {
     return Center(
       child: InkWell(
-        onTap: () => {widget.onPress()},
+        onTap: () => widget.onPress(),
         child: Container(
           width: MediaQuery.of(context).size.width - 40,
           height: 64,
@@ -25,30 +28,38 @@ class _PrimaryButtonState extends State<PrimaryButton> {
             children: [
               Text(
                 widget.title,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 20.0,
                   fontFamily: 'Roboto',
-                  color: Colors.white,
+                  color: widget.filled ? Colors.white : IdepColors.cyan,
                 ),
               ),
             ],
           ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            boxShadow: const [
-              BoxShadow(
-                  color: Color.fromRGBO(0, 179, 229, 0.6000000238418579),
-                  offset: Offset(0, 17),
-                  blurRadius: 25)
-            ],
-            gradient: const LinearGradient(
-                begin: Alignment(1, .5),
-                end: Alignment(1, 2),
-                colors: [
-                  Color.fromRGBO(0, 209, 234, 1),
-                  Color.fromRGBO(0, 98, 213, 1)
-                ]),
-          ),
+          decoration: widget.filled
+              ? BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Color.fromRGBO(0, 179, 229, 0.6000000238418579),
+                        offset: Offset(0, 17),
+                        blurRadius: 25)
+                  ],
+                  gradient: const LinearGradient(
+                      begin: Alignment(1, .5),
+                      end: Alignment(1, 2),
+                      colors: [
+                        Color.fromRGBO(0, 209, 234, 1),
+                        Color.fromRGBO(0, 98, 213, 1)
+                      ]),
+                )
+              : BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: Colors.cyan,
+                    width: 2,
+                  ),
+                ),
         ),
       ),
     );
