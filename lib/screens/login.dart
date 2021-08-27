@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:senary_app/components/animated_widget.dart';
 
@@ -6,6 +7,7 @@ import 'package:senary_app/components/text_input.dart';
 import 'package:senary_app/components/video.dart';
 import 'package:senary_app/constants/colors.dart';
 import 'package:senary_app/screens/animation_view.dart';
+import 'package:senary_app/screens/unity_view.dart';
 // import 'package:senary_app/components/video.dart';
 
 class LoginScreenView extends StatefulWidget {
@@ -39,9 +41,9 @@ class LoginScreenViewState extends State<LoginScreenView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              // VideoPlayerScreen(
-              //   videoUrl: 'assets/videos/login.mp4',
-              // ),
+              const VideoPlayerScreen(
+                videoUrl: 'assets/videos/login.mp4',
+              ),
               Column(
                   // padding: EdgeInsets.top(12),
                   children: <Widget>[
@@ -66,7 +68,14 @@ class LoginScreenViewState extends State<LoginScreenView> {
                   ]),
               Column(
                 children: <Widget>[
-                  PrimaryButton(title: 'login', onPress: pressHandler),
+                  PrimaryButton(
+                      title: 'unity',
+                      onPress: () => {
+                            Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                    builder: (_) => const UnityView()))
+                          }),
                   const SizedBox(height: 20),
                   PrimaryButton(
                       title: 'register',
@@ -75,7 +84,7 @@ class LoginScreenViewState extends State<LoginScreenView> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const AnimationView()))
+                                    builder: (_) => const AnimationView()))
                           }),
                   const SizedBox(height: 30),
                 ],
