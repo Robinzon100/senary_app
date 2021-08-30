@@ -9,6 +9,10 @@
 .history
 .svn/
 unity
+/Library
+/build
+/Build
+/Builds/senary_app.apk/unityLibrary/src/main/Il2CppOutputProject
 
 # IntelliJ related
 *.iml

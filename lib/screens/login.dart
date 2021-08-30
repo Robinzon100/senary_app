@@ -74,7 +74,7 @@ class LoginScreenViewState extends State<LoginScreenView> {
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                    builder: (_) => const UnityView()))
+                                    builder: (_) => UnityDemoScreen()))
                           }),
                   const SizedBox(height: 20),
                   PrimaryButton(
